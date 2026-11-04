@@ -1,5 +1,17 @@
 # ESP32-S31 security workshop: firmware and Launchpad config
 
+## Flash Assignment 1 from your browser
+
+**[Open ESP Launchpad and flash the TLS example](https://espressif.github.io/esp-launchpad/?flashConfigURL=https://raw.githubusercontent.com/AdityaHPatwardhan/esp32-s31-security-workshop/main/launchpad/config.toml)**
+
+```
+https://espressif.github.io/esp-launchpad/?flashConfigURL=https://raw.githubusercontent.com/AdityaHPatwardhan/esp32-s31-security-workshop/main/launchpad/config.toml
+```
+
+1. Use Chrome or Edge. Plug the board's **USB-to-UART** USB-C port into your laptop.
+2. Click **Connect**, pick the serial port, then **Flash**.
+3. Open **Console**. On Wi-Fi `EspressifEvent` you should see `esp-x509-crt-bundle: Certificate validated` and `Certificate verified.`
+
 Companion files for the [Introduction to the ESP32-S31: Security](https://developer.espressif.com/workshops/introduction-to-esp32-s31-security/) workshop.
 
 ## firmware/https_mbedtls
