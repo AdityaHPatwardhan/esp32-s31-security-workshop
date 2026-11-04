@@ -1,0 +1,1 @@
+da086ca6e1ec0f552ff0b204a0c72fe7a2b486b75c42b69f0a4061516a1f4223  secure_ota.bin
