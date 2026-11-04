@@ -1,0 +1,14 @@
+esp_toml_version = 1.0
+
+# ESP Launchpad (Quick Start flow) configuration for the ESP32-S31 security workshop.
+# Open: https://espressif.github.io/esp-launchpad/?flashConfigURL=https://raw.githubusercontent.com/AdityaHPatwardhan/esp32-s31-security-workshop/main/launchpad/config.toml
+firmware_images_url = "https://raw.githubusercontent.com/AdityaHPatwardhan/esp32-s31-security-workshop/main/firmware/https_mbedtls/"
+supported_apps = ["https_mbedtls"]
+config_readme_url = "https://raw.githubusercontent.com/AdityaHPatwardhan/esp32-s31-security-workshop/main/README.md"
+
+[https_mbedtls]
+chipsets = ["ESP32-S31"]
+image.esp32-s31 = "https_mbedtls-esp32s31-merged.bin"
+description = "Assignment 1: TLS client (ESP-IDF v6.1 https_mbedtls example). Wi-Fi SSID EspressifEvent, open network."
+readme.text = "https://raw.githubusercontent.com/AdityaHPatwardhan/esp32-s31-security-workshop/main/README.md"
+console_baudrate = 115200

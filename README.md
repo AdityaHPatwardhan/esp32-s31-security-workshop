@@ -27,3 +27,12 @@ Or flash from the browser with ESP Launchpad (Chrome/Edge, Web Serial): see `lau
 
 Expected log after boot: `example_connect` gets an IP on `EspressifEvent`, then
 `esp-x509-crt-bundle: Certificate validated`, `Certificate verified.` and the cipher suite line.
+
+## launchpad/
+
+Browser flashing with [ESP Launchpad](https://espressif.github.io/esp-launchpad/) (Chrome or Edge, USB cable on the board's USB Serial/JTAG port):
+
+- Quick Start flow (app and chip dropdowns):
+  <https://espressif.github.io/esp-launchpad/?flashConfigURL=https://raw.githubusercontent.com/AdityaHPatwardhan/esp32-s31-security-workshop/main/launchpad/config.toml>
+- Minimal flow (one Connect button, flashes the merged image at 0x0):
+  <https://espressif.github.io/esp-launchpad/minimal-launchpad/?flashConfigURL=https://raw.githubusercontent.com/AdityaHPatwardhan/esp32-s31-security-workshop/main/launchpad/minimal.toml>

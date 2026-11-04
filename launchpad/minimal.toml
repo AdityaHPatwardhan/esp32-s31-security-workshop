@@ -1,0 +1,12 @@
+# ESP Launchpad minimal flow: one button, flashes the merged image at 0x0.
+# Open: https://espressif.github.io/esp-launchpad/minimal-launchpad/?flashConfigURL=https://raw.githubusercontent.com/AdityaHPatwardhan/esp32-s31-security-workshop/main/launchpad/minimal.toml
+esp_toml_version = 1.0
+supported_apps = ["https_mbedtls"]
+multipart = true
+chip = "esp32s31"
+
+[https_mbedtls]
+readme.text = "https://raw.githubusercontent.com/AdityaHPatwardhan/esp32-s31-security-workshop/main/README.md"
+console_baudrate = 115200
+image.esp32s31.parts = ["https://raw.githubusercontent.com/AdityaHPatwardhan/esp32-s31-security-workshop/main/firmware/https_mbedtls/https_mbedtls-esp32s31-merged.bin"]
+image.esp32s31.addresses = ["0x0"]
