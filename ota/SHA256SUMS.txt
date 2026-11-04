@@ -1,1 +1,2 @@
-da086ca6e1ec0f552ff0b204a0c72fe7a2b486b75c42b69f0a4061516a1f4223  secure_ota.bin
+d90ab851aa0dd198ea7ea73fb3b9872b8c79454f7d63940178ad5b654b030c1b  secure_ota.bin
+cc680c36cfeab806b39582f57bd3244b839fdbdcaf8ea1c09c0e09d619b292dc  home/secure_ota.bin
