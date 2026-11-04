@@ -2,13 +2,20 @@ esp_toml_version = 1.0
 
 # ESP Launchpad (Quick Start flow) configuration for the ESP32-S31 security workshop.
 # Open: https://espressif.github.io/esp-launchpad/?flashConfigURL=https://raw.githubusercontent.com/AdityaHPatwardhan/esp32-s31-security-workshop/main/launchpad/config.toml
-firmware_images_url = "https://raw.githubusercontent.com/AdityaHPatwardhan/esp32-s31-security-workshop/main/firmware/https_mbedtls/"
-supported_apps = ["https_mbedtls"]
+firmware_images_url = "https://raw.githubusercontent.com/AdityaHPatwardhan/esp32-s31-security-workshop/main/firmware/"
+supported_apps = ["https_mbedtls", "nvs_encryption_hmac"]
 config_readme_url = "https://raw.githubusercontent.com/AdityaHPatwardhan/esp32-s31-security-workshop/main/README.md"
 
 [https_mbedtls]
 chipsets = ["ESP32-S31"]
-image.esp32-s31 = "https_mbedtls-esp32s31-merged.bin"
+image.esp32-s31 = "https_mbedtls/https_mbedtls-esp32s31-merged.bin"
 description = "Assignment 1: TLS client (ESP-IDF v6.1 https_mbedtls example). Wi-Fi SSID EspressifEvent, open network."
+readme.text = "https://raw.githubusercontent.com/AdityaHPatwardhan/esp32-s31-security-workshop/main/README.md"
+console_baudrate = 115200
+
+[nvs_encryption_hmac]
+chipsets = ["ESP32-S31"]
+image.esp32-s31 = "nvs_encryption_hmac/nvs_encryption_hmac-esp32s31-merged.bin"
+description = "Demo: NVS encryption with an HMAC key in eFuse (ESP-IDF v6.1 nvs_encryption_hmac example). First boot generates a key and burns it into eFuse BLOCK_KEY0 permanently. No Secure Boot, no flash encryption."
 readme.text = "https://raw.githubusercontent.com/AdityaHPatwardhan/esp32-s31-security-workshop/main/README.md"
 console_baudrate = 115200

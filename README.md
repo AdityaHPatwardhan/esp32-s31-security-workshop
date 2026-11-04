@@ -14,6 +14,19 @@ https://espressif.github.io/esp-launchpad/?flashConfigURL=https://raw.githubuser
 
 Companion files for the [Introduction to the ESP32-S31: Security](https://developer.espressif.com/workshops/introduction-to-esp32-s31-security/) workshop.
 
+## firmware/nvs_encryption_hmac
+
+The stock ESP-IDF `examples/security/nvs_encryption_hmac` example built for **esp32s31** with **ESP-IDF v6.1**
+(`CONFIG_NVS_SEC_HMAC_EFUSE_KEY_ID=0`). Select it in the Launchpad app dropdown.
+
+What it does on first boot: finds eFuse BLOCK_KEY0 empty, generates a random HMAC key, **burns it into BLOCK_KEY0
+(purpose HMAC_UP) permanently**, derives the NVS encryption keys from it, and encrypts the `nvs` and `custom_nvs`
+partitions. Later boots reuse the key. It does **not** enable Secure Boot or flash encryption; the application
+itself stays plaintext in flash. The board stays fully reflashable; only that one key block is used up.
+
+Expected log: `nvs_sec_provider: NVS Encryption - Registering HMAC-based scheme...`, `Generating NVS encr-keys...`,
+`efuse: BURN BLOCK4` (first boot only), `NVS partition "nvs" is encrypted.`, then the stored key/value pairs.
+
 ## firmware/https_mbedtls
 
 The stock ESP-IDF `examples/protocols/https_mbedtls` example built for **esp32s31** with **ESP-IDF v6.1**
