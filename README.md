@@ -29,6 +29,20 @@ itself stays plaintext in flash. The board stays fully reflashable; only that on
 Expected log: `nvs_sec_provider: NVS Encryption - Registering HMAC-based scheme...`, `Generating NVS encr-keys...`,
 `efuse: BURN BLOCK4` (first boot only), `NVS partition "nvs" is encrypted.`, then the stored key/value pairs.
 
+The merged image in this folder was produced from the build output with:
+
+```bash
+cd build
+python -m esptool --chip esp32s31 merge-bin -o nvs_encryption_hmac-esp32s31-merged.bin @flash_args
+# equivalent to:
+python -m esptool --chip esp32s31 merge-bin --flash-mode dio --flash-freq 80m --flash-size 4MB \
+    -o nvs_encryption_hmac-esp32s31-merged.bin \
+    0x2000 bootloader/bootloader.bin 0x8000 partition_table/partition-table.bin 0x10000 nvs_encryption_hmac.bin
+```
+
+The result is a flash image starting at offset 0: load it as-is in the [ESP32 emulator](https://espressif.github.io/esp-emulator/)
+(chip ESP32-S31) or `write-flash 0x0` it to a board.
+
 ## firmware/https_mbedtls
 
 The stock ESP-IDF `examples/protocols/https_mbedtls` example built for **esp32s31** with **ESP-IDF v6.1**
@@ -51,6 +65,13 @@ python -m esptool --chip esp32s31 -p PORT write-flash 0x0 https_mbedtls-esp32s31
 ```
 
 Or flash from the browser with ESP Launchpad (Chrome/Edge, Web Serial): see `launchpad/`.
+
+The merged image was produced with the same command (`flash_args` of this build puts the app at `0x10000`):
+
+```bash
+cd build
+python -m esptool --chip esp32s31 merge-bin -o https_mbedtls-esp32s31-merged.bin @flash_args
+```
 
 Expected log after boot: `example_connect` gets an IP on `EspressifEvent`, then
 `esp-x509-crt-bundle: Certificate validated`, `Certificate verified.` and the cipher suite line.
