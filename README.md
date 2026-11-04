@@ -19,6 +19,11 @@ Companion files for the [Introduction to the ESP32-S31: Security](https://develo
 `hello_world` with Secure Boot V2 (RSA-3072) for esp32s31. First boot burns the key digest and enables Secure Boot.
 **Emulator only**: the signing key is public here. Write-up and merge command: [SECURE_BOOT_V2.md](SECURE_BOOT_V2.md).
 
+## firmware/flash_encryption
+
+ESP-IDF `examples/security/flash_encryption` for esp32s31, Development mode. First boot generates the flash key
+and encrypts the flash in place. Write-up and merge command: [FLASH_ENCRYPTION.md](FLASH_ENCRYPTION.md).
+
 ## firmware/nvs_encryption_hmac
 
 Full demo write-up: [NVS_ENCRYPTION_HMAC.md](NVS_ENCRYPTION_HMAC.md).
