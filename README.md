@@ -1,0 +1,29 @@
+# ESP32-S31 security workshop: firmware and Launchpad config
+
+Companion files for the [Introduction to the ESP32-S31: Security](https://developer.espressif.com/workshops/introduction-to-esp32-s31-security/) workshop.
+
+## firmware/https_mbedtls
+
+The stock ESP-IDF `examples/protocols/https_mbedtls` example built for **esp32s31** with **ESP-IDF v6.1**
+(Assignment 1 of the workshop). Settings in `sdkconfig.defaults`:
+
+- Wi-Fi SSID `EspressifEvent`, open network (no password)
+- Certificate bundle enabled, 4 MB flash, single large factory app partition
+
+| File | Flash offset |
+|------|--------------|
+| `https_mbedtls-esp32s31-merged.bin` | `0x0` (everything in one image) |
+| `bootloader.bin` | `0x2000` |
+| `partition-table.bin` | `0x8000` |
+| `https_mbedtls.bin` | `0x10000` |
+
+Flash from the command line:
+
+```bash
+python -m esptool --chip esp32s31 -p PORT write-flash 0x0 https_mbedtls-esp32s31-merged.bin
+```
+
+Or flash from the browser with ESP Launchpad (Chrome/Edge, Web Serial): see `launchpad/`.
+
+Expected log after boot: `example_connect` gets an IP on `EspressifEvent`, then
+`esp-x509-crt-bundle: Certificate validated`, `Certificate verified.` and the cipher suite line.
