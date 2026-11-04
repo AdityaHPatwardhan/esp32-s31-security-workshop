@@ -16,6 +16,8 @@ Companion files for the [Introduction to the ESP32-S31: Security](https://develo
 
 ## firmware/nvs_encryption_hmac
 
+Full demo write-up: [NVS_ENCRYPTION_HMAC.md](NVS_ENCRYPTION_HMAC.md).
+
 The stock ESP-IDF `examples/security/nvs_encryption_hmac` example built for **esp32s31** with **ESP-IDF v6.1**
 (`CONFIG_NVS_SEC_HMAC_EFUSE_KEY_ID=0`). Select it in the Launchpad app dropdown.
 
